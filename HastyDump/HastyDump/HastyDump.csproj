@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{91E7CDFE-0945-45A7-9EAA-0933AFE381F2}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>HastyDump</RootNamespace>
-    <AssemblyName>HastyDump</AssemblyName>
+    <RootNamespace>ActionNamesapce</RootNamespace>
+    <AssemblyName>Action</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -40,7 +40,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -80,6 +80,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>strings $(TargetPath) &gt; $(TargetDir)strings.txt</PostBuildEvent>
+    <PostBuildEvent>del $(TargetDir)$(SolutionName)_$(ConfigurationName)_strings.txt
+del $(SolutionName)$(TargetExt)
+rename $(TargetPath) $(SolutionName)$(TargetExt)
+strings $(SolutionName)$(TargetExt) &gt; $(TargetDir)$(SolutionName)_$(ConfigurationName)_strings.txt
+</PostBuildEvent>
   </PropertyGroup>
 </Project>

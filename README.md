@@ -7,5 +7,5 @@ This project aims to provide a user with the ability to perform MiniDumps of a p
 ## HastyFixup
 
 ## HastyLoader
-
+test
 ## HastyShellcode

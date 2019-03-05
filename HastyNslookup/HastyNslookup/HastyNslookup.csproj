@@ -74,6 +74,8 @@
 del $(SolutionName)$(TargetExt)
 rename $(TargetPath) $(SolutionName)$(TargetExt)
 strings $(SolutionName)$(TargetExt) &gt; $(TargetDir)$(SolutionName)_$(ConfigurationName)_strings.txt
-</PostBuildEvent>
+
+echo F|xcopy "$(SolutionName)$(TargetExt)" "..\..\..\..\$(OutDir)$(SolutionName)$(TargetExt)" /I /Y /F /R
+echo F|xcopy "$(SolutionName)_$(ConfigurationName)_strings.txt" "..\..\..\..\$(OutDir)$(SolutionName)_$(ConfigurationName)_strings.txt" /I /Y /F /R</PostBuildEvent>
   </PropertyGroup>
 </Project>

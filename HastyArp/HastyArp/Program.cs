@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.ComponentModel;
 using System.Net;
 
-namespace HastyArp
+namespace Action
 {
     class Program
     {
@@ -116,17 +116,19 @@ namespace HastyArp
                     if (_arpInt != row.dwIndex)
                     {
                         // prior row dwindex does NOT match so its same interface
-                        Console.WriteLine($"Interface: INT-{row.dwIndex.ToString()} {row.dwType} ---- IP-{ip.ToString()}");
+                        Console.WriteLine($"Interface: INT: {row.dwIndex.ToString()} --- TYPE: {row.dwType} --- IP: {ip.ToString()}");
                     }
-                    Console.Write("\tIP:" + ip.ToString() + "\t\tMAC:");
-                    // write mac to console
-                    Console.Write(row.mac0.ToString("X2") + '-');
-                    Console.Write(row.mac1.ToString("X2") + '-');
-                    Console.Write(row.mac2.ToString("X2") + '-');
-                    Console.Write(row.mac3.ToString("X2") + '-');
-                    Console.Write(row.mac4.ToString("X2") + '-');
-                    Console.WriteLine(row.mac5.ToString("X2"));
+
+                    string pP = string.Format("\t{0,-20}{1,0}{2,-2}{3,0}{4,0}{5,0}{6,0}",
+                      ip.ToString(),
+                      row.mac0.ToString("X2") + '-',
+                      row.mac1.ToString("X2") + '-',
+                      row.mac2.ToString("X2") + '-',
+                      row.mac3.ToString("X2") + '-',
+                      row.mac4.ToString("X2") + '-',
+                      row.mac5.ToString("X2"));
                     _arpInt = row.dwIndex;
+                    Console.WriteLine(pP);
                 }
             }
             finally

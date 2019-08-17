@@ -22,61 +22,59 @@ A C# toolset to support offensive operators to triage, asses and make intelligen
 | [HastyShot](#hastyshot)          |  COLLECTION   |       3.5       |   [README.md](HastyShot/README.md)     |
 
 ## HastyArp
-
 **Type:** ENUMERATION  
 **.NET Framework:** 3.5  
 **Usage/README:** [README.md](HastyArp/README.md) 
-***
+
 This project aims to provide a user with the ability to perform arp requests. This project uses the `IpHlpApi.dll` for native functionality. 
 
 ## HastyDrives
-
 **Type:** ENUMERATION  
 **.NET Framework:** 3.5  
-**Usage/README:** [README.md](HastyArp/README.md) 
-***
+**Usage/README:** [README.md](HastyDrives/README.md) 
+
 This project aims to provide a user with the ability to perform lists drives on execution system. This project uses `System.IO` namespace to easily accomplish this.
 
 ## HastyDump
-
-**Type:** ENUMERATION  
+**Type:** COLLECTION  
 **.NET Framework:** 3.5  
-**Usage/README:** [README.md](HastyArp/README.md) 
-***
+**Usage/README:** [README.md](HastyDump/README.md) 
+
 This project aims to provide a user with the ability to perform collection operations to perform MiniDumps of a process as well as a raw mem dump. This provides operators with multiple choices to achieve access to process memory space.
 
-### HastyFixup
+## HastyFixup
+**Type:** OPSEC  
+**.NET Framework:** 3.5  
+**Usage/README:** [README.md](HastyFixup/README.md) 
+
+This project aims to provide a user with the ability to perform OPSEC operations on the tools provided in this repo. The tools help XOR strings, PE Fixups etc.
 
 ## HastyLogging
-
-**Type:** ENUMERATION  
+**Type:** SA  
 **.NET Framework:** 3.5  
-**Usage/README:** [README.md](HastyArp/README.md) 
-***
+**Usage/README:** [README.md](HastyLogging/README.md) 
+
 This project aims to provide a user with the ability to perform situational awareness operations of auditing settings. This project uses a mix of built in and native functionality.
 
 ## HastyNslookup
-
 **Type:** ENUMERATION  
 **.NET Framework:** 3.5  
-**Usage/README:** [README.md](HastyArp/README.md) 
+**Usage/README:** [README.md](HastyNslookup/README.md) 
 ***
 This project aims to provide a user with the ability to perform nslookup enumeration operations. This project uses `System.Net` namespace to easily accomplish this.
 
 ## HastyPing
-
 **Type:** ENUMERATION  
 **.NET Framework:** 3.5  
-**Usage/README:** [README.md](HastyArp/README.md) 
-***
+**Usage/README:** [README.md](HastyPing/README.md) 
+
 This project aims to provide a user with the ability to perform ping enumeration operations. This project uses `System.Net` namespace to easily accomplish this.
 
 ## HastyShellcode
 
 ## HastyShot
-
-**Type:** ENUMERATION  
+**Type:** COLLECTION  
 **.NET Framework:** 3.5  
-**Usage/README:** [README.md](HastyArp/README.md) 
-***
+**Usage/README:** [README.md](HastyShot/README.md) 
+
 This project aims to provide a user with the ability to perform collection operations of auditing settings. This project uses a mix of built in and native functionality.

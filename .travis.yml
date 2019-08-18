@@ -5,8 +5,11 @@ env:
   - MSBUILD_PATH="/C/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/MSBuild/15.0/Bin"
 
 install:
-  - choco install python2
+  - choco install python2 python3 7zip.install
+
+before_script:
+  - export PATH=$MSBUILD_PATH:$PATH
   
 script:
-  - export PATH=$MSBUILD_PATH:$PATH
   - msbuild.exe -help
+  - msbuild.exe HastyArp/HastyArp.sln /m /p:Configuration=Debug

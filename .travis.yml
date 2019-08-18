@@ -5,8 +5,8 @@ env:
   - MSBUILD_PATH="/C/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/MSBuild/15.0/Bin"
 
 install:
-  - cmd.exe /C 'whoami /all'
-  - cmd.exe /C 'DISM /Online /Enable-Feature /FeatureName:NetFx3 /All'
+  - cmd.exe /C "whoami /all"
+  - cmd.exe /C "DISM /Online /Enable-Feature /FeatureName:NetFx3 /All"
   - choco install python2 python3 7zip
   
 before_script:

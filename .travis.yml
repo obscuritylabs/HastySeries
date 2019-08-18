@@ -1,18 +1,20 @@
-os: windows
-language: shell
+#os: windows
+#language: shell
 
-env:
-  - MSBUILD_PATH="/C/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/MSBuild/15.0/Bin"
+#env:
+#  - MSBUILD_PATH="/C/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/MSBuild/15.0/Bin"
   
-before_install:
-  - choco install dotnet3.5 --debug --verbose
+#install:
+#  - cmd.exe /C "DISM /Online /Enable-Feature /FeatureName:NetFx3 /All"
+#  - choco install python2 python3 7zip
   
-install:
-  - cmd.exe /C "DISM /Online /Enable-Feature /FeatureName:NetFx3 /All"
-  - choco install python2 python3 7zip
+#before_script:
+#  - export PATH=$MSBUILD_PATH:$PATH
   
-before_script:
-  - export PATH=$MSBUILD_PATH:$PATH
-  
+#script:
+#  - msbuild.exe HastyArp/HastyArp.sln
+
+language: csharp
+
 script:
-  - msbuild.exe HastyArp/HastyArp.sln
+  - msbuild /p:Configuration=Release HastyArp/HastyArp.sln

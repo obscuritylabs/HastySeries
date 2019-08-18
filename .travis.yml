@@ -5,7 +5,7 @@ env:
   - MSBUILD_PATH="/C/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/MSBuild/15.0/Bin"
 
 install:
-  - dism.exe //online //enable-feature //featurename:NetFX3 //All //Source:c:\\temp\\sxs //LimitAccess
+  - dism.exe //online //enable-feature //featurename:NetFX3 //All //Source://c//temp//sxs //LimitAccess
   - choco install python2 python3 7zip
   
 before_script:

@@ -13,3 +13,4 @@ before_script:
   
 script:
   - msbuild.exe HastyArp/HastyArp.sln //m -p:Configuration=Release
+  - dir bin\Release\

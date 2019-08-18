@@ -1,20 +1,15 @@
 #os: windows
 #language: shell
 
-#env:
-#  - MSBUILD_PATH="/C/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/MSBuild/15.0/Bin"
+env:
+  - MSBUILD_PATH="/C/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/MSBuild/15.0/Bin"
   
-#install:
-#  - cmd.exe /C "DISM /Online /Enable-Feature /FeatureName:NetFx3 /All"
-#  - choco install python2 python3 7zip
+install:
+  - powershell -command 'Add-WindowsCapability –Online -Name NetFx3~~~~'
+  - choco install python2 python3 7zip
   
-#before_script:
-#  - export PATH=$MSBUILD_PATH:$PATH
+before_script:
+  - export PATH=$MSBUILD_PATH:$PATH
   
-#script:
-#  - msbuild.exe HastyArp/HastyArp.sln
-
-language: csharp
-
 script:
-  - msbuild /p:Configuration=Release HastyArp/HastyArp.sln
+  - msbuild.exe HastyArp/HastyArp.sln

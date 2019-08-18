@@ -13,4 +13,4 @@ before_script:
   - export PATH=$MSBUILD_PATH:$PATH
   
 script:
-  - msbuild.exe HastyArp/HastyArp.sln
+  - msbuild.exe HastyArp/HastyArp.sln /m -p:Configuration=Release

@@ -37,6 +37,8 @@ C:\Users\rt\Desktop\HastySeries\bin\Release>HastyDump.exe 13028 "C:\\Users\\rt\\
 [*] INFO: Close file handle of: C:\\Users\\rt\\Desktop\\test.bin
 [*] INFO: Close process handle of process ID: 13028
 ```
+### Example Screenshot:
+![2019-08-18 21_59_48-Command Prompt](https://user-images.githubusercontent.com/8761706/63241898-0e0da380-c25e-11e9-8c4d-a50a7688b600.png)
 
 ## OpSec
 ### Strings

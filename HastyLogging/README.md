@@ -34,7 +34,7 @@ C:\Users\rt\Desktop\HastySeries\bin\Release>HastyLogging.exe
 *---------------------------------------------------------------------*
 ```
 ### Expected Screenshot:
-![2019-08-18 21_59_48-Command Prompt](https://user-images.githubusercontent.com/8761706/63241997-65137880-c25e-11e9-8362-7fe28aaff964.png)
+![2019-08-18 22_49_31-Command Prompt](https://user-images.githubusercontent.com/8761706/63242025-8aa08200-c25e-11e9-9f5b-d9b9328255b5.png)
 
 ## OpSec
 ### Strings

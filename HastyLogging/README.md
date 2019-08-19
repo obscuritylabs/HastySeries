@@ -33,6 +33,8 @@ C:\Users\rt\Desktop\HastySeries\bin\Release>HastyLogging.exe
 |       -> POWERSHELL TRANSSCRIPT LOGGING: FALSE
 *---------------------------------------------------------------------*
 ```
+### Expected Screenshot:
+![2019-08-18 21_59_48-Command Prompt](https://user-images.githubusercontent.com/8761706/63241997-65137880-c25e-11e9-8362-7fe28aaff964.png)
 
 ## OpSec
 ### Strings

@@ -6,6 +6,11 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+pefile
+termcolor
+python-magic
+python-magic-bin
+ssdeep
 
 [requires]
 python_version = "3.7"

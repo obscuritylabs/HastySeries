@@ -60,7 +60,7 @@ This project aims to provide a user with the ability to perform situational awar
 **Type:** ENUMERATION  
 **.NET Framework:** 3.5  
 **Usage/README:** [README.md](HastyNslookup/README.md) 
-***
+
 This project aims to provide a user with the ability to perform nslookup enumeration operations. This project uses `System.Net` namespace to easily accomplish this.
 
 ## HastyPing

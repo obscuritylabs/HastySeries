@@ -1,4 +1,4 @@
-# Hasty Ping 
+# HastyDrives 
 A post-explotation command implemented in pure C# to list all drives and details that may be useful to a operator.
 
 ## Build 

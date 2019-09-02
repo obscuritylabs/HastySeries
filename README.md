@@ -26,6 +26,7 @@ A C# toolset to support offensive operators to triage, asses and make intelligen
 | [HastyShellcode](#hastyshellcode)|   EXECUTION   |       3.5       |   [README.md](HastyShellcode/README.md)|
 | [HastyShot](#hastyshot)          |  COLLECTION   |       3.5       |   [README.md](HastyShot/README.md)     |
 | [HastyStroke](#hastystroke)      |  COLLECTION   |       3.5       |   [README.md](HastyStroke/README.md)   |
+| [HastyUptime](#hastyuptime)      |  ENUMERATION  |       3.5       |   [README.md](HastyUptime/README.md)   |
 
 ## HastyArp
 **Type:** ENUMERATION  
@@ -84,3 +85,11 @@ This project aims to provide a user with the ability to perform ping enumeration
 **Usage/README:** [README.md](HastyShot/README.md) 
 
 This project aims to provide a user with the ability to perform collection operations of auditing settings. This project uses a mix of built in and native functionality.
+
+## HastyStroke
+**Type:** COLLECTION  
+**.NET Framework:** 3.5  
+**Usage/README:** [README.md](HastyShot/README.md) 
+
+This project aims to provide a user with the ability to perform keystroke collection operations. This project uses a mix of built in and native functionality.
+

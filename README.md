@@ -7,6 +7,11 @@
 # HastySeries
 A C# toolset to support offensive operators to triage, asses and make intelligent able decisions. Provided operators access to toolsets that can be integrated into other projects and workflow throughout a Red Team, Pentest or host investigation. We built this toolset over a period of a few days, hence the tool prefix of "Hasty".
 
+## Authors & Development 
+|                Name              |      Twitter Handle     |
+| :------------------------------: | :---------------------: |
+| Alexander Rymdeko-Harvey         | @killswitch-GUI         |
+| Scottie Austin                   | @CheckyMander           |
 
 ## Tool TOC (Table of Contents)
 |           Tool Code Name         |      Type     |  .NET Framework |                Usage/README            |

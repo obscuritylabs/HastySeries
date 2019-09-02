@@ -25,6 +25,7 @@ A C# toolset to support offensive operators to triage, asses and make intelligen
 | [HastyPing](#hastyping)          |  ENUMERATION  |       3.5       |   [README.md](HastyPing/README.md)     |
 | [HastyShellcode](#hastyshellcode)|   EXECUTION   |       3.5       |   [README.md](HastyShellcode/README.md)|
 | [HastyShot](#hastyshot)          |  COLLECTION   |       3.5       |   [README.md](HastyShot/README.md)     |
+| [HastyStroke](#hastystroke)      |  COLLECTION   |       3.5       |   [README.md](HastyStroke/README.md)   |
 
 ## HastyArp
 **Type:** ENUMERATION  

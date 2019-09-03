@@ -14,8 +14,8 @@ ALL HastySeries compiled binaries can be found on the github page with the most 
 ## Operate
 ### Command Examples:
 ```cmd
-C:\Users\rt\Desktop\HastySeries\bin\Release>HastyShot.exe fun.jpg
-C:\Users\rt\Desktop\HastySeries\bin\Release>HastyShot.exe fun.png png
+C:\Users\rt\Desktop\HastySeries\bin\Release>HastyShot.exe -help
+C:\Users\rt\Desktop\HastySeries\bin\Release>HastyShot.exe Desktop funtimes.jpg
 ```
 ### Expected Output:
 ```cmd

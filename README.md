@@ -2,11 +2,16 @@
 
 | Branch | Status | License | Chat | Hitcount |
 | :----: | :----: | :----: | :----: | :----: | 
-| Master | [![Build Status](https://travis-ci.com/obscuritylabs/HastySeries.svg?token=WijX13S3UsZRzVurRNNm&branch=master)](https://travis-ci.com/obscuritylabs/HastySeries) | [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause) | [![Gitter](https://badges.gitter.im/HastySeries/community.svg)](https://gitter.im/HastySeries/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) | [![HitCount](http://hits.dwyl.io/obscuritylabs/OS-CFDB.svg)](http://hits.dwyl.io/obscuritylabs/HastySeries)|
+| Master | [![Build Status](https://travis-ci.com/obscuritylabs/HastySeries.svg?token=WijX13S3UsZRzVurRNNm&branch=master)](https://travis-ci.com/obscuritylabs/HastySeries) | [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause) | [![Gitter](https://badges.gitter.im/HastySeries/community.svg)](https://gitter.im/HastySeries/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) | [![HitCount](http://hits.dwyl.io/obscuritylabs/HastySeries.svg)](http://hits.dwyl.io/obscuritylabs/HastySeries)|
 
 # HastySeries
 A C# toolset to support offensive operators to triage, asses and make intelligent able decisions. Provided operators access to toolsets that can be integrated into other projects and workflow throughout a Red Team, Pentest or host investigation. We built this toolset over a period of a few days, hence the tool prefix of "Hasty".
 
+## Authors & Development 
+|                Name              |      Twitter Handle     |
+| :------------------------------: | :---------------------: |
+| Alexander Rymdeko-Harvey         | @killswitch-GUI         |
+| Scottie Austin                   | @CheckyMander           |
 
 ## Tool TOC (Table of Contents)
 |           Tool Code Name         |      Type     |  .NET Framework |                Usage/README            |
@@ -20,6 +25,8 @@ A C# toolset to support offensive operators to triage, asses and make intelligen
 | [HastyPing](#hastyping)          |  ENUMERATION  |       3.5       |   [README.md](HastyPing/README.md)     |
 | [HastyShellcode](#hastyshellcode)|   EXECUTION   |       3.5       |   [README.md](HastyShellcode/README.md)|
 | [HastyShot](#hastyshot)          |  COLLECTION   |       3.5       |   [README.md](HastyShot/README.md)     |
+| [HastyStroke](#hastystroke)      |  COLLECTION   |       3.5       |   [README.md](HastyStroke/README.md)   |
+| [HastyUptime](#hastyuptime)      |  ENUMERATION  |       3.5       |   [README.md](HastyUptime/README.md)   |
 
 ## HastyArp
 **Type:** ENUMERATION  
@@ -60,7 +67,7 @@ This project aims to provide a user with the ability to perform situational awar
 **Type:** ENUMERATION  
 **.NET Framework:** 3.5  
 **Usage/README:** [README.md](HastyNslookup/README.md) 
-***
+
 This project aims to provide a user with the ability to perform nslookup enumeration operations. This project uses `System.Net` namespace to easily accomplish this.
 
 ## HastyPing
@@ -78,3 +85,17 @@ This project aims to provide a user with the ability to perform ping enumeration
 **Usage/README:** [README.md](HastyShot/README.md) 
 
 This project aims to provide a user with the ability to perform collection operations of auditing settings. This project uses a mix of built in and native functionality.
+
+## HastyStroke
+**Type:** COLLECTION  
+**.NET Framework:** 3.5  
+**Usage/README:** [README.md](HastyShot/README.md) 
+
+This project aims to provide a user with the ability to perform keystroke collection operations. This project uses a mix of built in and native functionality.
+
+## HastyUptime
+**Type:** SA  
+**.NET Framework:** 3.5  
+**Usage/README:** [README.md](HastyUptime/README.md) 
+
+This project aims to provide a user with the ability to perform situational awareness operations of current system uptime. This project uses native functionality.

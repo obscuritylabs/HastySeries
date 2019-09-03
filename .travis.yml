@@ -1,2 +1,16 @@
 os: windows
 language: shell
+
+env:
+  - MSBUILD_PATH="/C/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/MSBuild/15.0/Bin"
+  
+install:
+  - choco install sysinternals python2 python3 7zip
+  - psexec -s powershell.exe -command 'Add-WindowsCapability –Online -Name NetFx3~~~~'
+  
+before_script:
+  - export PATH=$MSBUILD_PATH:$PATH
+  
+script:
+  - msbuild.exe HastyArp/HastyArp.sln //m -p:Configuration=Release
+  - ls -lisa

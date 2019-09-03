@@ -18,7 +18,11 @@ C:\Users\rt\Desktop\HastySeries\bin\Release>HastyUptime.exe
 ```
 ### Expected Output:
 ```cmd
-
+[*] Current uptime using GetTimeStamp():
+        * Days: 2
+        * Hours: 0
+        * Minutes: 7
+        * Seconds: 12
 ```
 
 ## OpSec

@@ -93,3 +93,9 @@ This project aims to provide a user with the ability to perform collection opera
 
 This project aims to provide a user with the ability to perform keystroke collection operations. This project uses a mix of built in and native functionality.
 
+## HastyUptime
+**Type:** SA  
+**.NET Framework:** 3.5  
+**Usage/README:** [README.md](HastyUptime/README.md) 
+
+This project aims to provide a user with the ability to perform situational awareness operations of current system uptime. This project uses native functionality.

@@ -4,27 +4,55 @@ using System;
 using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Linq;
 
-namespace ChangeThisNamespace
+namespace ScreenMe
 {
-    /// <summary>
-    /// Provides functions to capture the entire screen, or a particular window, and save it to a file.
-    /// </summary>
+    public class xor
+    {
+        // https://stackoverflow.com/questions/14971836/xor-ing-strings-in-c-sharp
+        // encryptDecrypt XOR 
+        public static string encDec(string input)
+        {
+            char[] key = { 'K', 'S', 'A' }; // Any chars will work, in an array of any size
+            char[] output = new char[input.Length];
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                output[i] = (char)(input[i] ^ key[i % key.Length]);
+            }
+
+            return new string(output);
+        }
+
+        // Base64Decode Function
+        public static string bDec(string base64EncodedData)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+    }
     public class ScreenCapture
     {
-        /// <summary>
-        /// Creates an Image object containing a screen shot of the entire desktop
-        /// </summary>
-        /// <returns></returns>
         public Image CaptureScreen()
         {
-            return CaptureWindow(User32.GetDesktopWindow());
+            IntPtr iHandle = IntPtr.Zero;
+            iHandle = User32.GetDesktopWindow();
+            if (iHandle.ToInt32() == 0)
+            {
+                // Throws error
+                Console.ForegroundColor = ConsoleColor.Red;
+                // Console.WriteLine("[!] FAIL: Open DesktopWindow handle error code: " + Marshal.GetLastWin32Error().ToString());
+                Console.WriteLine(xor.encDec(xor.bDec("bAhgFnMHChoNcXMOOzYvaxckODg1JCMWIj0lJCRhIzIvLz8kazYzOTwzazAuLzZ7a3Q=")));
+                Console.ResetColor();
+                System.Environment.Exit(1);
+            }
+            Console.ForegroundColor = ConsoleColor.Green;
+            // Console.WriteLine("[*] SUCCESS: Obtained DesktopWindow Handle.");
+            Console.WriteLine(xor.encDec(xor.bDec("bAhrFnMSHhACDgAScXMOKScgIj0kL3MFLiAqPzwxHDovLzw2axsgJTctLn1m")));
+            Console.ResetColor();
+            return CaptureWindow(iHandle);
         }
-        /// <summary>
-        /// Creates an Image object containing a screen shot of a specific window
-        /// </summary>
-        /// <param name="handle">The handle to the window. (In windows forms, this is obtained by the Handle property)</param>
-        /// <returns></returns>
         public Image CaptureWindow(IntPtr handle)
         {
             // get te hDC of the target window
@@ -54,31 +82,20 @@ namespace ChangeThisNamespace
             GDI32.DeleteObject(hBitmap);
             return img;
         }
-        /// <summary>
-        /// Captures a screen shot of a specific window, and saves it to a file
-        /// </summary>
-        /// <param name="handle"></param>
-        /// <param name="filename"></param>
-        /// <param name="format"></param>
         public void CaptureWindowToFile(IntPtr handle, string filename, ImageFormat format)
         {
             Image img = CaptureWindow(handle);
             img.Save(filename, format);
         }
-        /// <summary>
-        /// Captures a screen shot of the entire desktop, and saves it to a file
-        /// </summary>
-        /// <param name="filename"></param>
-        /// <param name="format"></param>
         public void CaptureScreenToFile(string filename, ImageFormat format)
         {
             Image img = CaptureScreen();
             img.Save(filename, format);
+            Console.ForegroundColor = ConsoleColor.Green;
+            // Console.WriteLine("[*] SUCCESS: Image file writen to disk.");
+            Console.WriteLine(xor.encDec(xor.bDec("bAhrFnMSHhACDgAScXMIJjImLnMnIj8kayQzIickJXM1JHMlIiAqZXQ=")));
+            Console.ResetColor();
         }
-
-        /// <summary>
-        /// Helper class containing Gdi32 API functions
-        /// </summary>
         private class GDI32
         {
 
@@ -99,10 +116,6 @@ namespace ChangeThisNamespace
             [DllImport("gdi32.dll")]
             public static extern IntPtr SelectObject(IntPtr hDC, IntPtr hObject);
         }
-
-        /// <summary>
-        /// Helper class containing User32 API functions
-        /// </summary>
         private class User32
         {
             [StructLayout(LayoutKind.Sequential)]
@@ -116,19 +129,21 @@ namespace ChangeThisNamespace
             [DllImport("user32.dll")]
             public static extern IntPtr GetDesktopWindow();
             [DllImport("user32.dll")]
+            public static extern IntPtr GetForegroundWindow();
+            [DllImport("user32.dll")]
             public static extern IntPtr GetWindowDC(IntPtr hWnd);
             [DllImport("user32.dll")]
             public static extern IntPtr ReleaseDC(IntPtr hWnd, IntPtr hDC);
             [DllImport("user32.dll")]
             public static extern IntPtr GetWindowRect(IntPtr hWnd, ref RECT rect);
         }
-        private void WindowScreenshot(String filepath, String filename, ImageFormat format)
+        public static void Screenshot(String filepath, String filename, ImageFormat format)
         {
             ScreenCapture sc = new ScreenCapture();
 
             string fullpath = filepath + "\\" + filename;
 
-            sc.CaptureWindowToFile(this.Handle, fullpath, format);
+            sc.CaptureScreenToFile(fullpath, format);
         }
     }
 }
@@ -137,15 +152,69 @@ namespace ChangeThisNamespace
 
 namespace Action
 {
-    /// <summary>
-    /// Provides functions to capture the entire screen, or a particular window, and save it to a file.
-    /// </summary>
     public class Action
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
-            WindowScreenshot(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "window_screenshot.jpg", ImageFormat.Jpeg);
+            string OutPath = "";
+            if (args.Length < 2 || args.Contains("-help"))
+            {
+                // Console.WriteLine("Usage:   HastyShot.exe [Special Folder] [File Name] | -help");
+                Console.WriteLine(ScreenMe.xor.encDec(ScreenMe.xor.bDec("aQYyKjQkcXNhaxsgOCc4GDsuP30kMzZhEAAxLjAoKj9hDTwtLzYzFnMaDTotLnMPKj4kFnM9a34pLj8xaQ==")));
+                // Console.WriteLine("Example: HastyShot.exe Desktop window_screenshot.jpeg (Sets outpath to user desktop and output file)");
+                Console.WriteLine(ScreenMe.xor.encDec(ScreenMe.xor.bDec("aRY5Kj4xJzZ7axsgOCc4GDsuP30kMzZhDzYyICcuO3M2Ij0lJCQeODAzLjYvODsuP30rOzYma3sSLicyazw0PyMgPzthPzxhPiAkOXMlLiAqPzwxazIvL3MuPicxPidhLTotLnpj")));
+                // Console.WriteLine("Current Environment SpecialFolders:");
+                Console.WriteLine(ScreenMe.xor.encDec(ScreenMe.xor.bDec("bBA0OSEkJSdhDj03IiEuJT4kJSdhGCMkKDogJxUuJzckOSB7bA==")));
+                // Console.WriteLine("     * Desktop");
+                Console.WriteLine(ScreenMe.xor.encDec(ScreenMe.xor.bDec("aXNha3NhYXMFLiAqPzwxaQ==")));
+                // Console.WriteLine("     * Music");
+                Console.WriteLine(ScreenMe.xor.encDec(ScreenMe.xor.bDec("aXNha3NhYXMMPiAoKHE=")));
+                // Console.WriteLine("     * Documents");
+                Console.WriteLine(ScreenMe.xor.encDec(ScreenMe.xor.bDec("aXNha3NhYXMFJDA0JjYvPyBj")));
+                // Console.WriteLine("     * Pictures");
+                Console.WriteLine(ScreenMe.xor.encDec(ScreenMe.xor.bDec("aXNha3NhYXMAOyMtIjAgPzouJRcgPzJj")));
+                // Console.WriteLine("     * ApplicationData");
+                Console.WriteLine(ScreenMe.xor.encDec(ScreenMe.xor.bDec("aXNha3NhYXMAOyMtIjAgPzouJRcgPzJj")));
+                // Console.WriteLine("     * CommonApplicationData");
+                Console.WriteLine(ScreenMe.xor.encDec(ScreenMe.xor.bDec("aXNha3NhYXMCJD4sJD0AOyMtIjAgPzouJRcgPzJj")));
+                // Console.WriteLine("     * LocalApplicationData");
+                Console.WriteLine(ScreenMe.xor.encDec(ScreenMe.xor.bDec("aXNha3NhYXMNJDAgJxIxOz8oKDI1IjwvDzI1KnE=")));
+                // Console.WriteLine("HastyShot.exe -help (Returns this Help Message)");
+                Console.WriteLine(ScreenMe.xor.encDec(ScreenMe.xor.bDec("aRsgOCc4GDsuP30kMzZhZjskJyNhYwEkPyYzJSBhPzsoOHMJLj8xax4kOCAgLDZoaQ==")));
+                return -1;
+            }
+            switch (args[0].ToLower())
+            {
+                case "desktop":
+                    OutPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                    break;
+                case "music":
+                    OutPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
+                    break;
+                case "documents":
+                    OutPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    break;
+                case "pictures":
+                    OutPath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+                    break;
+                case "applicationdata":
+                    OutPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                    break;
+                case "commonapplicationdata":
+                    OutPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+                    break;
+                case "localapplicationdata":
+                    OutPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                    break;
+            }
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("[*] IMAGE TARGET DETAILS:");
+            Console.WriteLine("\t" + "OutPath: " + OutPath);
+            Console.WriteLine("\t" + "OutFile: " + args[1]);
+            Console.ResetColor();
+            ScreenMe.ScreenCapture.Screenshot(OutPath, args[1], ImageFormat.Jpeg);
             // Use this version to capture the full extended desktop (i.e. multiple screens)
+            return 0;
         }
     }
 }

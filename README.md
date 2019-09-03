@@ -16,11 +16,13 @@ A C# toolset to support offensive operators to triage, asses and make intelligen
 ## Current Release & Pre-Compiled Binaries *for those that into that kind of thing..*
 All releases can be found on GitHub. We do include a compied set of bin's that may be used for testing and analysis.
 Although it may be worth it to compile your self :)
-* `https://github.com/obscuritylabs/HastySeries/releases`
-* All releases contain:
-** Debug Builds
-** Release Builds
-** Accompanied Strings
+
+Release can be found here`https://github.com/obscuritylabs/HastySeries/releases`
+
+All releases contain:
+* Debug Builds
+* Release Builds
+* Accompanied Strings
 
 ## Tool TOC (Table of Contents)
 |           Tool Code Name         |      Type     |  .NET Framework |                Usage/README            |

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{47DB989F-7E33-4E6B-A4A5-C392B429264B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>HastyUptime</RootNamespace>
-    <AssemblyName>HastyUptime</AssemblyName>
+    <RootNamespace>Action</RootNamespace>
+    <AssemblyName>Action</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -23,7 +23,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -44,4 +44,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>del $(TargetDir)$(SolutionName)_$(ConfigurationName)_strings.txt
+del $(SolutionName)$(TargetExt)
+rename $(TargetPath) $(SolutionName)$(TargetExt)
+strings $(SolutionName)$(TargetExt) &gt; $(TargetDir)$(SolutionName)_$(ConfigurationName)_strings.txt
+
+echo F|xcopy "$(SolutionName)$(TargetExt)" "..\..\..\..\$(OutDir)$(SolutionName)$(TargetExt)" /I /Y /F /R
+echo F|xcopy "$(SolutionName)_$(ConfigurationName)_strings.txt" "..\..\..\..\$(OutDir)$(SolutionName)_$(ConfigurationName)_strings.txt" /I /Y /F /R</PostBuildEvent>
+  </PropertyGroup>
 </Project>

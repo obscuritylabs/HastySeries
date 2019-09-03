@@ -4,33 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Management;
+using System.Diagnostics;
 
 namespace HastyUptime
 {
     class Program
     {
-        [DllImport("kernel32")]
-        extern static UInt64 GetTickCount64();
-
-        public static TimeSpan GetUpTime()
+        public static void GetTimeStamp()
         {
-            return TimeSpan.FromMilliseconds(GetTickCount64());
+            var start = Stopwatch.StartNew();
+            var ticks = Stopwatch.GetTimestamp();
+            var uptime = ((double)ticks) / Stopwatch.Frequency;
+            var uptimeTimeSpan = TimeSpan.FromSeconds(uptime);
+            Console.WriteLine("[*] Current uptime using GetTimeStamp(): ");
+            Console.WriteLine("\t* Days: " + uptimeTimeSpan.Days.ToString());
+            Console.WriteLine("\t* Hours: " + uptimeTimeSpan.Hours.ToString());
+            Console.WriteLine("\t* Minutes: " + uptimeTimeSpan.Minutes.ToString());
+            Console.WriteLine("\t* Seconds: " + uptimeTimeSpan.Seconds.ToString());
         }
-
-        public static string WmiLocalUptime()
-        {
-            ManagementScope scope = new ManagementScope(@"\\.\root\CIMV2");
-            scope.Connect();
-     
-            return "";
-        }
-
 
         static void Main(string[] args)
         {
-
-            Console.WriteLine(GetUpTime());
-            Console.ReadKey();
+            GetTimeStamp();
         }
     }
 }

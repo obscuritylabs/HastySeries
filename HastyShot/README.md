@@ -21,6 +21,8 @@ C:\Users\rt\Desktop\HastySeries\bin\Release>HastyShot.exe fun.png png
 ```cmd
 
 ```
+### Example Screenshot:
+![2019-08-18 21_59_48-Command Prompt](https://github.com/obscuritylabs/HastySeries/raw/dev/.github/2019-09-03%2000_41_38-Command%20Prompt.png)
 
 ## OpSec
 ### Strings

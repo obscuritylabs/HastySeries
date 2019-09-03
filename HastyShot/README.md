@@ -19,7 +19,12 @@ C:\Users\rt\Desktop\HastySeries\bin\Release>HastyShot.exe fun.png png
 ```
 ### Expected Output:
 ```cmd
-
+C:\Users\rt\Desktop\HastySeries\bin\Release>HastyShot.exe Desktop funtimes.jpg
+[*] IMAGE TARGET DETAILS:
+        OutPath: C:\Users\rt\Desktop
+        OutFile: funtimes.jpg
+'[*] SUCCESS: Obtained DesktopWindow Handle.'
+'[*] SUCCESS: Image file writen to disk.'
 ```
 ### Example Screenshot:
 ![2019-08-18 21_59_48-Command Prompt](https://github.com/obscuritylabs/HastySeries/raw/dev/.github/2019-09-03%2000_41_38-Command%20Prompt.png)
